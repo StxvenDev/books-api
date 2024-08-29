@@ -25,7 +25,7 @@ const bookSchema = new mongoose.Schema({
 });
 
 bookSchema.methods.toJSON = function () {
-  const { __v, _id, ...book } = this.toObject();
+  const { __v,...book } = this.toObject();
   return book;
 }
 

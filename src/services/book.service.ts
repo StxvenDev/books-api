@@ -1,25 +1,34 @@
 import { isValidObjectId } from "mongoose";
-import { CreateBookInterface, UpdateBookInterface } from "../interfaces/book.interface";
-import { createBookRepository, deleteBookRepository, findBookByIdRepository, findBooksRepository, updateBookRepository } from "../repository/book.repository"
+import { IBook } from '../interfaces/book.interface';
+import { BookRepository} from "../repository/book.repository"
 
-export const createBookService = async (bookBody : CreateBookInterface) => {
-  // const {title, isbn} = bookBody;
-  await createBookRepository(bookBody);
-}
+export class BookService{
+  constructor(
+    private readonly bookRepository : BookRepository
+  ){}
 
-export const findBooksService = async () => {
-  return await findBooksRepository();
-}
+  async createBookService(bookBody : IBook){
+    await this.bookRepository.createBookRepository(bookBody);
+  }
 
-export const findBookbyIdService = async (bookId : string) => {
-  if(!isValidObjectId(bookId)) throw new Error('This is not a valid mongoID');
-  return await findBookByIdRepository(bookId);
-}
+  async findBooksService(){
+    return await this.bookRepository.findBooksRepository();
+  }
 
-export const updateBookService = async (bookId : string, bookBody : UpdateBookInterface) => {
-  return await updateBookRepository(bookId, bookBody);
-}
+  async findBookbyIdService(bookId : string){
+    if(!isValidObjectId(bookId)) throw new Error('This is not a valid mongoID');
+    return await this.bookRepository.findBookByIdRepository(bookId);
+  }
 
-export const deleteBookService = async (bookId : string) => {
-  await deleteBookRepository(bookId);
+  async updateBookService(bookId : string, bookBody : Partial<IBook>){
+    return await this.bookRepository.updateBookRepository(bookId, bookBody);
+  }
+
+  async deleteBookService(bookId : string){
+    await this.bookRepository.deleteBookRepository(bookId);
+  }
+
+  async executeSeedService(books : IBook []){
+    return await this.bookRepository.executeSeedRepository(books);
+  }
 }

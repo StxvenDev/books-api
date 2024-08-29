@@ -1,4 +1,4 @@
-const books = [
+export const books = [
   {
     title: "Enable Gibraltar Cheese open-source",
     author: "Mable Howell",

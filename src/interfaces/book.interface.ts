@@ -1,4 +1,4 @@
-export interface CreateBookInterface {
+export interface IBook {
   title: String;
   author: String;
   publicationDate: Date;
@@ -6,11 +6,4 @@ export interface CreateBookInterface {
   genre: String;
 }
 
-export interface UpdateBookInterface {
-  title?: String;
-  author?: String;
-  publicationDate?: Date;
-  isbn?: String;
-  genre?: String;
-}
 

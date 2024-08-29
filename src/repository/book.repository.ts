@@ -1,4 +1,4 @@
-import { CreateBookInterface, UpdateBookInterface } from "../interfaces/book.interface";
+import { IBook } from "../interfaces/book.interface";
 import Book from '../models/book.model';
 
 export class BookRepository{
@@ -6,7 +6,7 @@ export class BookRepository{
     private readonly bookModel = Book,
   )  {}
 
-  async createBookRepository(bookBody : CreateBookInterface){
+  async createBookRepository(bookBody : IBook){
     await this.bookModel.create(bookBody);
   }
 
@@ -18,36 +18,18 @@ export class BookRepository{
     return await this.bookModel.findById(bookId);
   }
 
-  async updateBookRepository(bookId : string, bookBody : UpdateBookInterface){
+  async updateBookRepository(bookId : string, bookBody : Partial<IBook>){
     return await Book.findByIdAndUpdate(bookId, bookBody, {new : true});
   }
 
   async deleteBookRepository(bookId : string){
     return await Book.findByIdAndDelete(bookId);
   }
+
+  async executeSeedRepository(books : IBook []){
+    await Book.deleteMany();
+    return await Book.insertMany(books);
+  }
 }
 
-
-
-{
-  // export const createBookRepository = async (bookBody : CreateBookInterface) => {
-    //   await Book.create(bookBody);
-    // }
-    
-    // export const findBooksRepository = async () => {
-    //   return await Book.find({});
-    // }
-    
-    // export const findBookByIdRepository = async (bookId : string) => {
-      //   return await Book.findById(bookId);
-      // }
-      
-    // export const updateBookRepository = async (bookId : string, bookBody : UpdateBookInterface) => {
-      //   return await Book.findByIdAndUpdate(bookId, bookBody, {new : true});
-      // }
-      
-    // export const deleteBookRepository = async (bookId : string) => {
-    //   return await Book.findByIdAndDelete(bookId);
-    // }
-      }
   

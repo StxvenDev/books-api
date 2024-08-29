@@ -1,5 +1,6 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://download.logo.wine/logo/Node.js/Node.js-Logo.wine.png" width="200" alt="Nest Logo" /></a>
+<img src="https://download.logo.wine/logo/Node.js/Node.js-Logo.wine.png" width="200" alt="node Logo" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-plain-wordmark.svg" width="150" alt="Mongo Logo" />
 </p>
 
 # Ejecutar el proyecto en modo desarrollo
@@ -18,10 +19,18 @@ npm install
 npm run start:dev
 ```
 
-## Enpoints
+## Enpoint
+* URL
+```
+http://localhost:3001/books
+```
 
+#### Cargar datos de prueba.
+Al momento de consultar este endpoint se borraran todos los datos ya registrados y se insertaran datos de prueba
 
-
+```
+http://localhost:3001/books/seed
+```
 
 
 ### Emanuel Caceres Cabarcas  - Steven Bossio Leal
