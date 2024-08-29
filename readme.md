@@ -34,10 +34,11 @@ Al momento de consultar este endpoint se borraran todos los datos ya registrados
 http://localhost:3001/books/seed
 ```
 
-
-### Emanuel Caceres Cabarcas  - Steven Bossio Leal
-
 #### Stack usado 
 * MongoDB
 * NodeJS
 * Express
+
+## Integrantes del Grupo.
+- Steven Bossio Leal
+- Emanuel Caceres Cabarcas.
