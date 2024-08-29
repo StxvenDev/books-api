@@ -38,7 +38,7 @@ export class BookController{
       return httpResponse(200, 'Book found', true, res, book);
     } catch (error : any) {
       console.log(error.message);
-      return httpResponse(500, 'Server Error :(', false, res);
+      return httpResponse(500, `Server Error :( ${error.message}`, false, res);
     }
   }
 
@@ -52,7 +52,7 @@ export class BookController{
       return httpResponse(200, 'Book update', true, res, updateBook);
     } catch (error : any) {
       console.log(error.message);
-      return httpResponse(500, 'Server Error :(', false, res);
+      return httpResponse(500, `Server Error :( ${error.message}`, false, res);
     }
   }
 
@@ -65,7 +65,7 @@ export class BookController{
       return httpResponse(200, 'Book delete', true, res);
     } catch (error : any) {
       console.log(error.message);
-      return httpResponse(500, 'Server Error :(', false, res);
+      return httpResponse(500, `Server Error :( ${error.message}`, false, res);
     }
   }
 
@@ -75,7 +75,7 @@ export class BookController{
       return httpResponse(201, 'Seed execute', true, res, booksSeed)
     } catch (error : any) {
       console.log(error.message);
-      return httpResponse(500, 'Server Error :(', false, res);
+      return httpResponse(500, `Server Error :( ${error.message}`, false, res);
     }
   }
 
