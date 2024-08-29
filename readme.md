@@ -24,6 +24,8 @@ npm run start:dev
 ```
 http://localhost:3001/books
 ```
+* ApiDocs by postman
+https://documenter.getpostman.com/view/23534694/2sAXjJ7ZZy
 
 #### Cargar datos de prueba.
 Al momento de consultar este endpoint se borraran todos los datos ya registrados y se insertaran datos de prueba
