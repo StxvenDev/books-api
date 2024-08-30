@@ -3,7 +3,7 @@ import { BookService} from '../services/book.service';
 import { httpResponse } from '../utils/httpResponses';
 import { bodyValidator } from '../middlewares/bodyValidator';
 import { books } from '../config/database/data';
-import { bookSchema } from '../utils/joiValidator';
+import { bookSchemaCreate, bookSchemaUpdate } from '../utils/joiValidator';
 
 export class BookController{
   constructor(
@@ -81,11 +81,11 @@ export class BookController{
   }
 
   routes(uriBase : string, app: Application){
-    app.post(`${uriBase}/`, [bodyValidator(bookSchema)], this.createBook.bind(this));
+    app.post(`${uriBase}/`, [bodyValidator(bookSchemaCreate)], this.createBook.bind(this));
     app.post(`${uriBase}/seed`, this.executeSeed.bind(this));
     app.get(`${uriBase}/`, this.findBooks.bind(this));
     app.get(`${uriBase}/:id`, this.findBookById.bind(this));
-    app.patch(`${uriBase}/:id`, [bodyValidator(bookSchema)], this.updateBook.bind(this));
+    app.patch(`${uriBase}/:id`, [bodyValidator(bookSchemaUpdate)], this.updateBook.bind(this));
     app.delete(`${uriBase}/:id`, this.deleteBook.bind(this));
   }
   
